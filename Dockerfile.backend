@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+# Application working directory
+WORKDIR /app
+
+# Copy backend code and guideline data
+COPY ./backend /app/backend
+COPY ./data /app/data
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r /app/backend/requirements.txt
+
+# Expose backend port
+EXPOSE 8000
+
+# Set the working directory to backend module and launch the API
+WORKDIR /app/backend
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
