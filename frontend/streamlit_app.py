@@ -98,11 +98,8 @@ def chat_view() -> None:
             except Exception as e:
                 answer = f"Error: {e}"
         st.session_state.messages.append({"role": "assistant", "content": answer})  # type: ignore
-        # Rerender to show the new messages
-        st.experimental_rerun()
-
-
-# Render the selected mode
+      # Rerender to show the new messages
+        st.rerun() Render the selected mode
 if mode == "Structured Recommendation":
     structured_recommendation_view()
 else:
