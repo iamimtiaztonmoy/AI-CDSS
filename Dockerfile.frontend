@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy frontend code
+COPY ./frontend /app/frontend
+
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r /app/frontend/requirements.txt
+
+# Expose frontend port
+EXPOSE 8501
+
+# Change directory to the frontend and run the app
+WORKDIR /app/frontend
+CMD ["streamlit", "run", "streamlit_app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
