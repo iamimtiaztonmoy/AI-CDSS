@@ -14,8 +14,8 @@ import streamlit as st
 
 # Configure backend URL.  When using docker-compose the hostname is `backend`.  If
 # running manually, change this to "http://localhost:8000".
-BACKEND_URL = "http://backend:8000"
-
+B
+BACKEND_URL = "https://ai-cdss.onrender.com"
 st.set_page_config(page_title="Comprehensive Clinical Decision Support")
 st.title("Comprehensive AI Clinical Decision Support System")
 
